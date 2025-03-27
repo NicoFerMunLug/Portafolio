@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 0%;
+  --primary: #818CF8;
+  --primary-foreground: 0 0% 100%;
+}
+
+.dark {
+  --background: 0 0% 0%;
+  --foreground: 0 0% 100%;
+  --primary: #818CF8;
+  --primary-foreground: 0 0% 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.navbar {
+  @apply fixed top-0 left-0 w-full z-50 transition-all duration-300;
+}
+
+.navbar-scrolled {
+  @apply bg-white/70 backdrop-blur-md shadow-md;
+}
+
+.navbar-default {
+  @apply bg-transparent;
+}
+
+.navbar-container {
+  @apply max-w-7xl mx-auto px-4 py-3 flex justify-between items-center;
+}
+
+.navbar-links {
+  @apply flex space-x-6;
+}
+
+.navbar-link {
+  @apply text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-500 transition;
+}
+
+.navbar-button {
+  @apply bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: auto;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 10px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* Position the tooltip above the text */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%; /* At the bottom of the tooltip */
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
